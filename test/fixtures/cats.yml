@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: cats
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  lives      :integer
+#  state      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+murph:
+  name: Murph
+  lives: 0
+  state: sleeping
+
+penny:
+  name: Penny
+  lives: 9
+  state: hungry
