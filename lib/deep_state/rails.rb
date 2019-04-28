@@ -38,6 +38,7 @@ module DeepState
           after_find "restore_#{as}".to_sym
           after_initialize "restore_#{as}".to_sym
           before_validation "update_#{as}_state".to_sym, on: :update
+          scope :in_state, ->(state){ where(column => machine_class.new.search_state_filter(state)) }
         end
       end
     end
