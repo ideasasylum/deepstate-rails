@@ -29,4 +29,10 @@ class DeepState::Rails::Test < ActiveSupport::TestCase
     murph = cats(:murph)
     assert_equal murph, Cat.in_state(:sleeping).first
   end
+
+  test "sets the model in the state machine context" do
+    murph = cats(:murph)
+    assert_equal murph.life.context.model, murph
+    assert_equal murph.life.context.cat, murph
+  end
 end
