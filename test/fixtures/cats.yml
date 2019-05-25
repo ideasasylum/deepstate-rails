@@ -16,8 +16,10 @@ murph:
   name: Murph
   lives: 0
   state: sleeping
+  state_updated_at: <%= Time.now %>
 
 penny:
   name: Penny
   lives: 9
   state: hungry
+  state_updated_at: <%= Time.now %>

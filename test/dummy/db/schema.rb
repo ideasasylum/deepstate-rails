@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_04_27_213945) do
     t.string "name"
     t.integer "lives"
     t.string "state"
+    t.datetime "state_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -4,6 +4,7 @@ class CreateCats < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :lives
       t.string :state
+      t.timestamp :state_updated_at
 
       t.timestamps
     end
