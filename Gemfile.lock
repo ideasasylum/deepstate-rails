@@ -8,7 +8,7 @@ PATH
   specs:
     deepstate-rails (0.1.0)
       deepstate
-      rails (~> 5.2.2, >= 5.2.2.1)
+      rails (>= 5.2)
 
 GEM
   remote: https://rubygems.org/
