@@ -35,4 +35,19 @@ class DeepState::Rails::Test < ActiveSupport::TestCase
     assert_equal murph.life.context.model, murph
     assert_equal murph.life.context.cat, murph
   end
+
+  test "publishes ActiveSupport notifications" do
+    murph = cats(:murph)
+
+    received_event = nil
+    ActiveSupport::Notifications.subscribe 'deepstate.transition' do |name, started, finished, event_id, event|
+      received_event = event
+    end
+
+    murph.life.wake!
+    assert received_event
+    assert_equal :wake, received_event[:name]
+    assert_equal :sleeping, received_event[:from]
+    assert_equal :hungry, received_event[:to]
+  end
 end

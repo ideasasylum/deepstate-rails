@@ -1,3 +1,5 @@
+require 'deep_state/rails/notifications'
+
 module DeepState
   module Rails
     extend ActiveSupport::Concern
@@ -47,6 +49,8 @@ module DeepState
           before_validation "update_#{as}_state".to_sym, on: :update
           scope :in_state, ->(state){ where(state_column => machine_class.new.search_state_filter(state)) }
         end
+
+        DeepState::StateMachine.prepend DeepState::Rails::Notifications
       end
     end
   end
